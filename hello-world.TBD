@@ -1,0 +1,14 @@
+pkgname=helloworld
+pkgver=v0.0.1
+pkgrel=1
+pkgdesc='hello world'
+pkggit="https://github.com/YukariChiba/hello-world.git"
+pkgcommit="40e04b8ca9d72c3d268defa89768a7dfb932a6df"
+image="docker.io/rikorose/gcc-cmake:gcc-11"
+build() {
+  cmake .
+  make
+}
+package() {
+  cp bin/hello_world $pkgdir/
+}

@@ -12,7 +12,7 @@ if [[ $# -eq 0 ]] ; then
 fi
 
 if [ $1 = "all" ]; then
-   for tbdfil in *.TBD; do
+   for tbdfile in *.TBD; do
 	   build_package $tbdfile
    done
 else

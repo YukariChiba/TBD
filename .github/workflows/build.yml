@@ -13,6 +13,11 @@ jobs:
     - name: Run jobs
       run: ./TBD.sh all
       env:
-        CI_NAME: Github Action
-    - name: Get signatures
-      run: ./
+        CI_NAME: githubaction
+    - name: Move result json files
+      run: mkdir results && mv ./*.json results/
+    - name: Publish results
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: results-githubaction
+        folder: results

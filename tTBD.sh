@@ -11,3 +11,5 @@ tar --sort=name \
       --owner=0 --group=0 --numeric-owner \
       --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime \
       -cf /publish/$pkgname-$pkgver.tar $pkgdir
+sha256sum=`sha256sum /publish/$pkgname-$pkgver.tar | cut -d ' ' -f1`
+echo "{\"version\":\"$pkgver\",\"sha256\":\"$sha256sum\",\"timestamp\":\""`date +%s`"\"}" > /publish/$pkgname.json
